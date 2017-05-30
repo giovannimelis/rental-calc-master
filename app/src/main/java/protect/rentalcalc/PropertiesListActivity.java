@@ -22,6 +22,9 @@ import com.google.common.collect.ImmutableMap;
 
 import java.util.Calendar;
 import java.util.Map;
+import com.microsoft.azure.mobile.MobileCenter;
+import com.microsoft.azure.mobile.analytics.Analytics;
+import com.microsoft.azure.mobile.crashes.Crashes;
 
 public class PropertiesListActivity extends AppCompatActivity
 {
@@ -36,6 +39,8 @@ public class PropertiesListActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        MobileCenter.start(getApplication(), "75d1c848-6b38-4f0c-a55d-390e8600d4cf",
+                   Analytics.class, Crashes.class);
 
         _db = new DBHelper(this);
     }
